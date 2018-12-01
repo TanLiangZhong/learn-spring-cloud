@@ -1,0 +1,11 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1117/eureka/
+
+spring:
+  application:
+    name: system
+
+server:
+  port: 1118
