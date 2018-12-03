@@ -19,63 +19,51 @@ public class RestVo<T> implements Serializable {
     /**
      * 应用返回编码
      */
-    @ApiModelProperty(value = "应用返回编码", name = "appCode")
-    private String appCode;
+    @ApiModelProperty(value = "应用返回编码", name = "code")
+    private String code;
 
     /**
      * 应用返回消息
      */
-    @ApiModelProperty(value = "应用返回消息", name = "appMsg")
-    private String appMsg;
+    @ApiModelProperty(value = "应用返回消息", name = "message")
+    private String message;
 
     /**
      * 应用返回结果
      */
-    @ApiModelProperty(value = "应用返回结果", name = "result")
-    private T result;
+    @ApiModelProperty(value = "应用返回结果", name = "data")
+    private T data;
 
 
     public RestVo() {
         ResultMsg result = ResultMsg.SUCCESS;
-        this.appCode = result.getCode();
-        this.appMsg = result.getName();
+        this.code = result.getCode();
+        this.message = result.getName();
     }
 
     public static RestVo SUCCESS() {
         RestVo<Object> restVo = new RestVo<>();
         ResultMsg result = ResultMsg.SUCCESS;
-        restVo.setAppCode(result.getCode());
-        restVo.setAppMsg(result.getName());
+        restVo.setCode(result.getCode());
+        restVo.setMessage(result.getName());
         return restVo;
     }
 
     public static RestVo SUCCESS(Object obj) {
         RestVo<Object> restVo = new RestVo<>();
         ResultMsg result = ResultMsg.SUCCESS;
-        restVo.setAppCode(result.getCode());
-        restVo.setAppMsg(result.getName());
-        restVo.setResult(obj);
+        restVo.setCode(result.getCode());
+        restVo.setMessage(result.getName());
+        restVo.setData(obj);
         return restVo;
     }
 
     public static RestVo FAIL() {
         RestVo<Object> restVo = new RestVo<>();
         ResultMsg result = ResultMsg.FAIL;
-        restVo.setAppCode(result.getCode());
-        restVo.setAppMsg(result.getName());
+        restVo.setCode(result.getCode());
+        restVo.setMessage(result.getName());
         return restVo;
-    }
-
-    public void setAppCode(String appCode) {
-        this.appCode = appCode;
-    }
-
-    public void setAppMsg(String appMsg) {
-        this.appMsg = appMsg;
-    }
-
-    public void setResult(T result) {
-        this.result = result;
     }
 
 }
