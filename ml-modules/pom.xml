@@ -10,6 +10,12 @@
     <name>ml-modules</name>
     <description>All module</description>
 
+    <modules>
+        <module>ml-service-anime</module>
+        <module>ml-service-system</module>
+    </modules>
+
+
     <parent>
         <groupId>com.ml</groupId>
         <artifactId>learn-spring-cloud</artifactId>
@@ -22,27 +28,31 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
             <version>${swagger2.version}</version>
-            <!--<exclusions>-->
-                <!--<exclusion>-->
-                    <!--<groupId>io.swagger</groupId>-->
-                    <!--<artifactId>swagger-annotations</artifactId>-->
-                <!--</exclusion>-->
-                <!--<exclusion>-->
-                    <!--<groupId>io.swagger</groupId>-->
-                    <!--<artifactId>swagger-models</artifactId>-->
-                <!--</exclusion>-->
-            <!--</exclusions>-->
+<!--            <exclusions>
+                <exclusion>
+                    <groupId>io.swagger</groupId>
+                    <artifactId>swagger-annotations</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>io.swagger</groupId>
+                    <artifactId>swagger-models</artifactId>
+                </exclusion>
+            </exclusions>-->
         </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-            <version>2.9.4</version>
-        </dependency>
+
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <version>${swagger2.version}</version>
         </dependency>
+
+
+<!--        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.9.4</version>
+        </dependency>-->
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

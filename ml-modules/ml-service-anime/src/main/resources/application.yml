@@ -5,7 +5,7 @@ eureka:
 
 spring:
   application:
-    name: system
+    name: anime
 
 server:
-  port: 1117
+  port: 1118

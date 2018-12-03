@@ -1,0 +1,26 @@
+server:
+  port: 1112
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      locator:
+        enabled: true
+      routes:
+      - id: ml-admin
+        uri: lb://ml-system
+        predicates:
+        - Path=/system/**
+      - id: ml-admin
+        uri: lb://ml-anime
+        predicates:
+        - Path=/anime/**
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: hhttp://localhost:1111/eureka/
