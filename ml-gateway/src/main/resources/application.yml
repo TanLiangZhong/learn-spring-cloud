@@ -19,8 +19,6 @@ spring:
         - Path=/anime/**
 
 eureka:
-  instance:
-    prefer-ip-address: true
   client:
-    service-url:
-      defaultZone: hhttp://localhost:1111/eureka/
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
