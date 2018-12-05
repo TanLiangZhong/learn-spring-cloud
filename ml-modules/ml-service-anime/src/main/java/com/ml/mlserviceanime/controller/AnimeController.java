@@ -1,5 +1,6 @@
 package com.ml.mlserviceanime.controller;
 
+import com.ml.mlserviceanime.api.SystemApi;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -18,8 +19,11 @@ import java.util.List;
  */
 @Api("主页")
 @RestController
-@RequestMapping()
+@RequestMapping
 public class AnimeController {
+
+    @Autowired
+    private SystemApi systemApi;
 
     @ApiOperation("Get 主页")
     @GetMapping("index/{name}")
@@ -33,25 +37,10 @@ public class AnimeController {
         return "Hello " + name + " !!! " + anime;
     }
 
-    private final RestTemplate restTemplate;
-    private final DiscoveryClient discoveryClient;
-
-    @Autowired
-    public AnimeController(RestTemplate restTemplate, DiscoveryClient discoveryClient) {
-        this.restTemplate = restTemplate;
-        this.discoveryClient = discoveryClient;
-    }
-
-    @ApiOperation("测试")
+    @ApiOperation("测试 Feign")
     @GetMapping("test")
-    public String query() {
-        final List<String> services = discoveryClient.getServices();
-        for (String service : services) {
-            List<ServiceInstance> list = discoveryClient.getInstances(service);
-            for (ServiceInstance instance : list) {
-                System.out.println(instance.getUri() + "/" + service + " - " + instance.getServiceId());
-            }
-        }
-        return restTemplate.getForObject("http://SYSTEM/system/index/谭", String.class);
+    public String test() {
+        return systemApi.index("谭良忠");
     }
+
 }

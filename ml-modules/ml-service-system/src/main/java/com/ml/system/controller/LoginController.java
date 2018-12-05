@@ -18,7 +18,7 @@ import java.util.Map;
  */
 @Api("登陆控制器")
 @RestController
-@RequestMapping("system")
+@RequestMapping
 public class LoginController {
 
     private final static String TOKEN = "ASDFGHJKL";
