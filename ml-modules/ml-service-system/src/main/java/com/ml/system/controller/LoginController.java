@@ -25,8 +25,8 @@ public class LoginController {
 
     @ApiOperation("主页")
     @GetMapping("index/{name}")
-    public String index(@ApiParam("用户名") @PathVariable String name) {
-        return "Hello " + name;
+    public String index(@ApiParam("用户名") @PathVariable String name, @RequestHeader String token) {
+        return "Hello " + name + " , Token = " + token;
     }
 
     @ApiOperation("登陆")
