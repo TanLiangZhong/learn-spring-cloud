@@ -1,16 +1,11 @@
-package com.ml.mlserviceanime.controller;
+package com.ml.anime.controller;
 
-import com.ml.mlserviceanime.api.SystemApi;
+import com.ml.anime.api.SystemApi;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.client.ServiceInstance;
-import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
-
-import java.util.List;
 
 /**
  * @author liangzhong

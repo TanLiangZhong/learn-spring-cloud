@@ -1,4 +1,4 @@
-package com.ml.mlserviceanime.config;
+package com.ml.anime.config;
 
 import feign.RequestInterceptor;
 import feign.RequestTemplate;

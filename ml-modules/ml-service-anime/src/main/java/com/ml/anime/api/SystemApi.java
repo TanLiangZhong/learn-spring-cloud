@@ -1,4 +1,4 @@
-package com.ml.mlserviceanime.api;
+package com.ml.anime.api;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

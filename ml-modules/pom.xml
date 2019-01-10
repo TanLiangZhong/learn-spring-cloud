@@ -15,7 +15,6 @@
         <module>ml-service-system</module>
     </modules>
 
-
     <parent>
         <groupId>com.ml</groupId>
         <artifactId>learn-spring-cloud</artifactId>
@@ -23,8 +22,14 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
+    <properties>
+        <ml.version>0.0.1-SNAPSHOT</ml.version>
+    </properties>
+
+
     <dependencies>
 
+       <!-- spring -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -35,8 +40,36 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
+        <!--/ spring -->
+
+        <!-- ml -->
+        <dependency>
+            <groupId>com.ml</groupId>
+            <artifactId>ml-include-base</artifactId>
+            <version>${ml.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.ml</groupId>
+            <artifactId>ml-include-bean</artifactId>
+            <version>${ml.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.ml</groupId>
+            <artifactId>ml-include-common</artifactId>
+            <version>${ml.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.ml</groupId>
+            <artifactId>ml-include-mapper</artifactId>
+            <version>${ml.version}</version>
+        </dependency>
+        <!-- / ml -->
 
         <dependency>
             <groupId>io.springfox</groupId>
