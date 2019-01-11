@@ -1,6 +1,7 @@
+
 # 端口号
 server:
-  port: 1112
+  port: 1118
 
 spring:
   application:
@@ -21,9 +22,10 @@ eureka:
     # 设置微服务调用地址为IP优先
     prefer-ip-address: true
     # 心跳时间，即服务续约间隔时间 ( 缺省为30s )
-    lease-renewal-interval-in-seconds: 10
+    #lease-renewal-interval-in-seconds: 10
     # 发呆时间，即服务续约到期时间 ( 缺省为90s )
-    lease-expiration-duration-in-seconds: 30
+    #lease-expiration-duration-in-seconds: 30
+
   client:
     serviceUrl:
-      defaultZone: http://${eureka.host:127.0.0.1}:${eureka.port:1111}/eureka/
+      defaultZone: http://${eureka.host:127.0.0.1}:${eureka.port:1117}/eureka/

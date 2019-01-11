@@ -1,0 +1,7 @@
+
+spring:
+  application:
+    name: ml-eureka
+  # dev:开发配置、test:测试配置、prod: 发布配置;
+  profiles:
+    active: ${config.active:dev}

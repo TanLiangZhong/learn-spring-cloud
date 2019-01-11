@@ -1,8 +1,19 @@
 server:
-  port: 1111
+  port: 1117
+
 eureka:
+  server:
+    # 关闭自我保护模式（缺省为打开）
+    #enable-self-preservation: false
+    # 续期时间，即扫描失效服务的间隔时间（缺省为60*1000ms）
+    eviction-interval-timer-in-ms: 10000
+
+  #实例名,集群中根据这里相互识别
   instance:
+    # 设置微服务调用地址为IP优先
     prefer-ip-address: true
+    hostname: localhost
+
   client:
     # eureka service 没必要自己把自己注册上去，所以可以设置成 false
     register-with-eureka: false
@@ -12,9 +23,6 @@ eureka:
       # 默认注册地址 this.serviceUrl.put("defaultZone", "http://localhost:8761/eureka/");
       # 划重点：此处的 defaultZone 千万别写成 default-zone
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-      # 从 Eureka 服务器端获取注册信息的间隔时间（默认：30秒）
-    #registry-fetch-interval-seconds: 5
-
 
 
 #    service:

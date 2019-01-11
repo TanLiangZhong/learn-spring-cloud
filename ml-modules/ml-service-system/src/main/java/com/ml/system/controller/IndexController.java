@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  * 主页 - Controller
  *
  * @author liangzhong
+ * @version 1.0
  * @date 2019/1/10
  */
 @RestController
