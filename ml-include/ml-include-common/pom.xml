@@ -15,4 +15,10 @@
     <name>ml-include-common</name>
     <description>存放公共组件.</description>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+    </dependencies>
 </project>

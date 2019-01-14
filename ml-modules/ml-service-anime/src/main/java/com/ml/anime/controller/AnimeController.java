@@ -1,11 +1,11 @@
 package com.ml.anime.controller;
 
-import com.ml.anime.api.SystemApi;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author liangzhong
@@ -14,28 +14,16 @@ import org.springframework.web.bind.annotation.*;
  */
 @Api("主页")
 @RestController
-@RequestMapping
+@RequestMapping("/anime/anime")
 public class AnimeController {
 
-    @Autowired
-    private SystemApi systemApi;
+
+    @Value("${ml.name}")
+    private String mlName;
 
     @ApiOperation("Get 主页")
-    @GetMapping("index/{name}")
-    public String index(@ApiParam("名称") @PathVariable String name) {
-        return "Hello " + name;
+    @GetMapping("index")
+    public String index() {
+        return mlName;
     }
-
-    @ApiOperation("Post 主页")
-    @PostMapping("index")
-    public String index(@ApiParam("名称") @RequestParam String name, @ApiParam("动漫") @RequestParam String anime) {
-        return "Hello " + name + " !!! " + anime;
-    }
-
-    @ApiOperation("测试 Feign")
-    @GetMapping("test")
-    public String test() {
-        return systemApi.index("谭良忠");
-    }
-
 }
