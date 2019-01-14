@@ -15,3 +15,13 @@ spring:
       # 通过链接地址访问配置中心
       uri: http://${config.host:127.0.0.1}:${config.port:1118}
       enabled: true
+
+  datasource:
+    url: jdbc:mysql://123.206.125.80:3306/kirito?charset=utf8mb4&useSSL=false
+    username: root
+    password: MyNewPass4!
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # 当遇到同样名称时, 是否允许覆盖注册
+  main:
+    allow-bean-definition-overriding: true

@@ -13,9 +13,10 @@
 
     <modules>
         <module>ml-eureka</module>
+        <module>ml-config</module>
         <module>ml-gateway</module>
-        <module>ml-modules</module>
         <module>ml-include</module>
+        <module>ml-modules</module>
     </modules>
 
     <parent>
