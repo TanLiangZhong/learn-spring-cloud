@@ -8,7 +8,7 @@ spring:
     name: ml-config
   # 设置为本地方式
   profiles:
-    active: ${config.native:native}
+    active: ${config.native:dev}
 
   cloud:
     config:
@@ -17,15 +17,3 @@ spring:
           # 配置文件所在目录，classpath（类路径）和（系统文件路径） file两种
           search-locations: classpath:/config/
 
-eureka:
-  instance:
-    # 设置微服务调用地址为IP优先
-    prefer-ip-address: true
-    # 心跳时间，即服务续约间隔时间 ( 缺省为30s )
-    #lease-renewal-interval-in-seconds: 10
-    # 发呆时间，即服务续约到期时间 ( 缺省为90s )
-    #lease-expiration-duration-in-seconds: 30
-
-  client:
-    serviceUrl:
-      defaultZone: http://${eureka.host:127.0.0.1}:${eureka.port:1117}/eureka/
