@@ -1,6 +1,6 @@
 package com.ml.anime.service;
 
-import com.ml.bean.anime.entity.Anime;
+import com.ml.anime.entity.Anime;
 
 import java.util.List;
 
@@ -14,12 +14,12 @@ public interface AnimeService {
 
 
     /**
-     * 新增
+     * 保存
      *
      * @param anime
-     * @return success = true ,  fail = false
+     * @return 结果
      */
-    Boolean add(Anime anime);
+    Anime save(Anime anime);
 
     /**
      * 修改
@@ -53,4 +53,10 @@ public interface AnimeService {
      */
     List<Anime> findList(Anime anime);
 
+    /**
+     * 查询列表
+     *
+     * @return
+     */
+    List<Anime> findPage(Anime anime);
 }
