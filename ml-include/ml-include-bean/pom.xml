@@ -15,4 +15,12 @@
     <name>ml-include-bean</name>
     <description>存放 entity实体类 , vo响应参数 , bo请求参数 ,final 常量, enum 枚举</description>
 
+    <dependencies>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${swagger2.version}</version>
+        </dependency>
+    </dependencies>
+
 </project>

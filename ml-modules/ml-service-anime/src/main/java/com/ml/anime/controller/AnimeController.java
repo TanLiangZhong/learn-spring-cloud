@@ -1,8 +1,10 @@
 package com.ml.anime.controller;
 
 import com.ml.anime.entity.Anime;
-import com.ml.anime.service.AnimeService;
 import com.ml.anime.service.impl.AnimeServiceImpl;
+import com.ml.bean.anime.bo.AnimeBo;
+import com.ml.bean.anime.vo.AnimeVo;
+import com.ml.bean.common.vo.RestVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -20,17 +22,15 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/anime/anime")
 public class AnimeController {
 
+    private final AnimeServiceImpl animeService;
 
-    private final AnimeService animeService;
+    @Value("${ml.name}")
+    private String mlName;
 
     @Autowired
     public AnimeController(AnimeServiceImpl animeService) {
         this.animeService = animeService;
     }
-
-    @Value("${ml.name}")
-    private String mlName;
-
 
     @ApiOperation("Get 主页")
     @GetMapping("index")
@@ -38,17 +38,21 @@ public class AnimeController {
         return mlName;
     }
 
-
     @ApiOperation("根据主键查询")
     @GetMapping("findById/{id}")
     public Anime findById(@ApiParam(value = "主键", required = true) @PathVariable("id") Long id) {
-        return animeService.findById(id);
+        return animeService.findById(id).orElse(null);
     }
 
     @ApiOperation("保存")
     @PostMapping("save")
-    public Anime save(@ApiParam(value = "动漫对象", required = true) @RequestBody Anime anime) {
-        return animeService.save(anime);
+    public RestVo<AnimeVo> save(@ApiParam(value = "动漫对象", required = true) @RequestBody AnimeBo bo) {
+        return RestVo.success(animeService.save(bo));
     }
 
+    @ApiOperation("查询所有")
+    @GetMapping("findAll")
+    public RestVo<Anime> findAll() {
+        return RestVo.success(animeService.findAllVo());
+    }
 }
