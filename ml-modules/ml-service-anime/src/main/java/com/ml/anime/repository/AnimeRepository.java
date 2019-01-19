@@ -1,6 +1,6 @@
 package com.ml.anime.repository;
 
-import com.ml.anime.entity.Anime;
+import com.ml.bean.anime.entity.Anime;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 /**

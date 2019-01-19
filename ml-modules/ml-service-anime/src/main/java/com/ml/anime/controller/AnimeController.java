@@ -1,8 +1,8 @@
 package com.ml.anime.controller;
 
-import com.ml.anime.entity.Anime;
 import com.ml.anime.service.impl.AnimeServiceImpl;
 import com.ml.bean.anime.bo.AnimeBo;
+import com.ml.bean.anime.entity.Anime;
 import com.ml.bean.anime.vo.AnimeVo;
 import com.ml.bean.common.vo.RestVo;
 import io.swagger.annotations.Api;
