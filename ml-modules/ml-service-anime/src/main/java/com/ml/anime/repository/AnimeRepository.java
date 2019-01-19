@@ -1,12 +1,14 @@
 package com.ml.anime.repository;
 
-import com.ml.bean.anime.entity.Anime;
+import com.ml.anime.entity.Anime;
 import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  * @author liangzhong
  * @date 2019/1/14 14:30
  */
+@Repository
 public interface AnimeRepository extends PagingAndSortingRepository<Anime, Long> {
 
 //    /**

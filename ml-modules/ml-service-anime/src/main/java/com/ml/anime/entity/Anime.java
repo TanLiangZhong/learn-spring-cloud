@@ -1,4 +1,4 @@
-package com.ml.bean.anime.entity;
+package com.ml.anime.entity;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

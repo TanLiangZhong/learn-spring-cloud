@@ -1,10 +1,10 @@
 package com.ml.anime.service.impl;
 
+import com.ml.anime.entity.Anime;
 import com.ml.anime.repository.AnimeRepository;
 import com.ml.anime.service.AnimeService;
 import com.ml.base.service.impl.BaseServiceImpl;
 import com.ml.bean.anime.bo.AnimeBo;
-import com.ml.bean.anime.entity.Anime;
 import com.ml.bean.anime.vo.AnimeVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
