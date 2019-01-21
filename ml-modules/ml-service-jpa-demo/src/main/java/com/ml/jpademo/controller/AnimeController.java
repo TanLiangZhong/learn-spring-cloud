@@ -2,15 +2,18 @@ package com.ml.jpademo.controller;
 
 import com.ml.bean.anime.bo.AnimeBo;
 import com.ml.bean.anime.vo.AnimeVo;
-import com.ml.bean.common.vo.RestVo;
 import com.ml.jpademo.entity.Anime;
+import com.ml.jpademo.entity.PageBo;
 import com.ml.jpademo.service.impl.AnimeServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @author liangzhong
@@ -19,7 +22,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @Api("主页")
 @RestController
-@RequestMapping("/anime/anime")
+@RequestMapping("jap/demo")
 public class AnimeController {
 
     private final AnimeServiceImpl animeService;
@@ -46,13 +49,19 @@ public class AnimeController {
 
     @ApiOperation("保存")
     @PostMapping("save")
-    public RestVo<AnimeVo> save(@ApiParam(value = "动漫对象", required = true) @RequestBody AnimeBo bo) {
-        return RestVo.success(animeService.save(bo));
+    public void save(@ApiParam(value = "动漫对象", required = true) @RequestBody AnimeBo bo) {
+        animeService.save(bo);
     }
 
     @ApiOperation("查询所有")
     @GetMapping("findAll")
-    public RestVo<Anime> findAll() {
-        return RestVo.success(animeService.findAllVo());
+    public List<AnimeVo> findAll() {
+        return animeService.findAllVo();
+    }
+
+    @ApiOperation("分页查询")
+    @PostMapping("findPage")
+    public Page<Anime> findPage(@ApiParam(value = "分页Bo", required = true) @RequestBody PageBo<AnimeBo> pageBo) {
+        return animeService.findPage(pageBo);
     }
 }

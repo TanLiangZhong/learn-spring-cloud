@@ -5,14 +5,10 @@ import com.ml.anime.repository.AnimeRepository;
 import com.ml.anime.service.AnimeService;
 import com.ml.base.service.impl.BaseServiceImpl;
 import com.ml.bean.anime.bo.AnimeBo;
-import com.ml.bean.anime.vo.AnimeVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 动漫 - 服务实现
@@ -40,18 +36,4 @@ public class AnimeServiceImpl extends BaseServiceImpl<AnimeRepository, Anime, Lo
         return true;
     }
 
-    /**
-     * 查询所有
-     *
-     * @return
-     */
-    public List<AnimeVo> findAllVo() {
-        List<AnimeVo> list = new ArrayList<>();
-        this.findAll().forEach(i -> {
-            AnimeVo e = new AnimeVo();
-            BeanUtils.copyProperties(i, e);
-            list.add(e);
-        });
-        return list;
-    }
 }

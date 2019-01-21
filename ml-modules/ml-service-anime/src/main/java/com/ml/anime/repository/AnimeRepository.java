@@ -1,6 +1,7 @@
 package com.ml.anime.repository;
 
 import com.ml.anime.entity.Anime;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Repository;
  * @date 2019/1/14 14:30
  */
 @Repository
-public interface AnimeRepository extends PagingAndSortingRepository<Anime, Long> {
+public interface AnimeRepository extends JpaRepository<Anime, Long> {
 
 //    /**
 //     * 新增

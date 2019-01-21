@@ -4,11 +4,14 @@ import com.ml.base.service.impl.BaseServiceImpl;
 import com.ml.bean.anime.bo.AnimeBo;
 import com.ml.bean.anime.vo.AnimeVo;
 import com.ml.jpademo.entity.Anime;
+import com.ml.jpademo.entity.PageBo;
 import com.ml.jpademo.repository.AnimeRepository;
 import com.ml.jpademo.service.AnimeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -33,11 +36,10 @@ public class AnimeServiceImpl extends BaseServiceImpl<AnimeRepository, Anime, Lo
      * @param bo
      * @return
      */
-    public boolean save(AnimeBo bo) {
+    public void save(AnimeBo bo) {
         Anime e = new Anime();
         BeanUtils.copyProperties(bo, e);
         animeRepository.save(e);
-        return true;
     }
 
     /**
@@ -54,4 +56,18 @@ public class AnimeServiceImpl extends BaseServiceImpl<AnimeRepository, Anime, Lo
         });
         return list;
     }
+
+    /**
+     * 分页
+     *
+     * @param pageBo
+     * @return
+     */
+    public Page<Anime> findPage(PageBo<AnimeBo> pageBo) {
+        PageRequest pageRequest = PageRequest.of(pageBo.getPage(), pageBo.getSize());
+        Page<Anime> page = animeRepository.findAll(pageRequest);
+        return page;
+    }
+
+
 }

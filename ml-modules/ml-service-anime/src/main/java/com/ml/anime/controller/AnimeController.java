@@ -49,10 +49,10 @@ public class AnimeController {
     public RestVo<AnimeVo> save(@ApiParam(value = "动漫对象", required = true) @RequestBody AnimeBo bo) {
         return RestVo.success(animeService.save(bo));
     }
-
-    @ApiOperation("查询所有")
-    @GetMapping("findAll")
-    public RestVo<Anime> findAll() {
-        return RestVo.success(animeService.findAllVo());
-    }
+//
+//    @ApiOperation("查询所有")
+//    @GetMapping("findAll")
+//    public RestVo<Anime> findAll() {
+//        return RestVo.success(animeService.findAllVo());
+//    }
 }

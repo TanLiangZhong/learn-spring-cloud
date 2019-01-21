@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
@@ -15,7 +15,7 @@ import java.util.Optional;
  * @author liangzhong
  * @date 2019/1/17 10:44
  */
-public abstract class BaseServiceImpl<R extends PagingAndSortingRepository<T, ID>, T, ID> implements BaseService<T, ID> {
+public abstract class BaseServiceImpl<R extends JpaRepository<T, ID>, T, ID> implements BaseService<T, ID> {
 
     @Autowired(required = false)
     protected R r;
