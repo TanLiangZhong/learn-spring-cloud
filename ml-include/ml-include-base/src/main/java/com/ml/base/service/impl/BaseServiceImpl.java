@@ -2,6 +2,9 @@ package com.ml.base.service.impl;
 
 import com.ml.base.service.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.Optional;
@@ -116,5 +119,27 @@ public abstract class BaseServiceImpl<R extends PagingAndSortingRepository<T, ID
     @Override
     public void deleteAll(Iterable<? extends T> entities) {
         r.deleteAll(entities);
+    }
+
+    /**
+     * Returns all entities sorted by the given options.
+     *
+     * @param sort
+     * @return all entities sorted by the given options
+     */
+    @Override
+    public Iterable<T> findAll(Sort sort) {
+        return r.findAll(sort);
+    }
+
+    /**
+     * Returns a {@link Page} of entities meeting the paging restriction provided in the {@code Pageable} object.
+     *
+     * @param pageable
+     * @return a page of entities
+     */
+    @Override
+    public Page<T> findAll(Pageable pageable) {
+        return r.findAll(pageable);
     }
 }
