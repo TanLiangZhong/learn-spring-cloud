@@ -17,7 +17,7 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = false)
 @Entity
 @Table(name = "anime")
-public class Anime extends AbstractPersistable<Long> implements Serializable {
+public class Anime implements Serializable {
 
 /**
  * UUID 主键 ID
@@ -79,4 +79,13 @@ public class Anime extends AbstractPersistable<Long> implements Serializable {
     @Column(name = "description", length = -1)
     private String description;
 
+    /**
+     * Must be {@link Transient} in order to ensure that no JPA provider complains because of a missing setter.
+     *
+     * @see org.springframework.data.domain.Persistable#isNew()
+     */
+    @Transient // DATAJPA-622
+    public boolean isNew() {
+        return null == getId();
+    }
 }
