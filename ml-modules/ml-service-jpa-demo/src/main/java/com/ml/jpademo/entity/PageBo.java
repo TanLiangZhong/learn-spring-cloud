@@ -17,7 +17,7 @@ public class PageBo<T> {
     @ApiModelProperty(value = "当前页数", required = true, example = "1")
     private Integer page;
 
-    @ApiModelProperty(value = "每页显示数", required = true, example = "30")
+    @ApiModelProperty(value = "每页显示数", required = true, example = "10")
     private Integer size;
 
     @ApiModelProperty(value = "参数")

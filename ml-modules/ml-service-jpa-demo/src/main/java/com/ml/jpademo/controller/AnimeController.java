@@ -50,7 +50,7 @@ public class AnimeController {
     @ApiOperation("保存")
     @PostMapping("save")
     public void save(@ApiParam(value = "动漫对象", required = true) @RequestBody AnimeBo bo) {
-        animeService.save(bo);
+        animeService.saveAll();
     }
 
     @ApiOperation("根据Id删除")
