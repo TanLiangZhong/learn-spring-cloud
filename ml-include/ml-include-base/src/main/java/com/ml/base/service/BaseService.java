@@ -89,6 +89,11 @@ public interface BaseService<T, ID> {
     void deleteAll(Iterable<? extends T> entities);
 
     /**
+     * Deletes all entities managed by the repository.
+     */
+    void deleteAll();
+
+    /**
      * Returns all entities sorted by the given options.
      *
      * @param sort

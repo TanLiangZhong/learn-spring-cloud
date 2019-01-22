@@ -53,6 +53,18 @@ public class AnimeController {
         animeService.save(bo);
     }
 
+    @ApiOperation("根据Id删除")
+    @DeleteMapping("delete/{id}")
+    public void delete(@PathVariable Long id) {
+        animeService.deleteById(id);
+    }
+
+    @ApiOperation("删除所有")
+    @DeleteMapping("delete/all")
+    public void delete() {
+        animeService.deleteAll();
+    }
+
     @ApiOperation("查询所有")
     @GetMapping("findAll")
     public List<AnimeVo> findAll() {

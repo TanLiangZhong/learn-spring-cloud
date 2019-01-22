@@ -87,4 +87,13 @@ public class Anime implements Serializable {
     public boolean isNew() {
         return null == getId();
     }
+
+
+    public Anime() {
+    }
+
+    public Anime(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
 }

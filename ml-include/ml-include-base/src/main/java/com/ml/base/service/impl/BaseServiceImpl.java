@@ -122,6 +122,14 @@ public abstract class BaseServiceImpl<R extends JpaRepository<T, ID>, T, ID> imp
     }
 
     /**
+     * Deletes all entities managed by the repository.
+     */
+    @Override
+    public void deleteAll() {
+        r.deleteAll();
+    }
+
+    /**
      * Returns all entities sorted by the given options.
      *
      * @param sort
