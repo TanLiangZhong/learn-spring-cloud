@@ -1,6 +1,6 @@
-package com.ml.jpademo.repository;
+package com.ml.jpa.repository;
 
-import com.ml.jpademo.entity.Anime;
+import com.ml.jpa.entity.Anime;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

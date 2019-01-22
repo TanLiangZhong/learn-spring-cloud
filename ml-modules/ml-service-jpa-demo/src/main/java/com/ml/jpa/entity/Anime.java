@@ -1,4 +1,4 @@
-package com.ml.jpademo.entity;
+package com.ml.jpa.entity;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

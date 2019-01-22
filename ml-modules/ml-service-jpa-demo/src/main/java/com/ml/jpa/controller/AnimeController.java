@@ -1,10 +1,10 @@
-package com.ml.jpademo.controller;
+package com.ml.jpa.controller;
 
 import com.ml.bean.anime.bo.AnimeBo;
 import com.ml.bean.anime.vo.AnimeVo;
-import com.ml.jpademo.entity.Anime;
-import com.ml.jpademo.entity.PageBo;
-import com.ml.jpademo.service.impl.AnimeServiceImpl;
+import com.ml.jpa.entity.Anime;
+import com.ml.jpa.entity.PageBo;
+import com.ml.jpa.service.impl.AnimeServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;

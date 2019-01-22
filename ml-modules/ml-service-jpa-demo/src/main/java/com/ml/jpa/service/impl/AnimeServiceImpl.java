@@ -1,29 +1,21 @@
-package com.ml.jpademo.service.impl;
+package com.ml.jpa.service.impl;
 
-import com.alibaba.fastjson.JSON;
 import com.ml.base.service.impl.BaseServiceImpl;
 import com.ml.bean.anime.bo.AnimeBo;
 import com.ml.bean.anime.vo.AnimeVo;
-import com.ml.jpademo.entity.Anime;
-import com.ml.jpademo.entity.PageBo;
-import com.ml.jpademo.repository.AnimeRepository;
-import com.ml.jpademo.service.AnimeService;
+import com.ml.jpa.entity.Anime;
+import com.ml.jpa.entity.PageBo;
+import com.ml.jpa.repository.AnimeRepository;
+import com.ml.jpa.service.AnimeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 /**
  * 动漫 - 服务实现

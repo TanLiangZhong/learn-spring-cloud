@@ -1,4 +1,4 @@
-package com.ml.jpademo.service;
+package com.ml.jpa.service;
 
 import com.ml.base.service.BaseService;
 
