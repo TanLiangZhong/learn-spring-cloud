@@ -1,6 +1,6 @@
-package com.ml.base.service.impl;
+package com.ml.jpa.service.impl;
 
-import com.ml.base.service.BaseService;
+import com.ml.jpa.service.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
