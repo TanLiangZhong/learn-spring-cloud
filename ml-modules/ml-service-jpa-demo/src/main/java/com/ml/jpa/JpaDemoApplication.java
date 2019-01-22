@@ -7,6 +7,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * Spring Data JPA Demo - Main
+ *
+ * @author liangzhong
+ * @version 1.0
+ * @date 2018-12-22
  */
 @EnableSwagger2
 @EnableFeignClients
