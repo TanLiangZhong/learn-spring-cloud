@@ -1,12 +1,15 @@
 ### [Spring Data Redis Document](https://spring.io/projects/spring-data-redis)
-### 1. add Depending
+
+###1. [docker-install-redis](http://www.runoob.com/docker/docker-install-redis.html)
+
+###2. add Depending
 ```xml
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-data-redis</artifactId>
 </dependency>
 ```
-### 2. add Config
+###3. add Config
 ```yaml
 spring:
  # redis 配置
@@ -32,7 +35,7 @@ spring:
     # 连接超时时间 (毫秒)
     timeout: 500
 ```
-### 3. [RedisTemplate](https://docs.spring.io/spring-data/redis/docs/current/api/org/springframework/data/redis/core/RedisTemplate.html) Use
+###4. [RedisTemplate](https://docs.spring.io/spring-data/redis/docs/current/api/org/springframework/data/redis/core/RedisTemplate.html) Use
 ```java
 public class RedisController {
 
