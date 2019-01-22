@@ -24,11 +24,10 @@ public class RedisController {
     @Autowired(required = false)
     private RedisTemplate<String, String> redisTemplate;
 
-
     @ApiOperation("Set Value")
     @GetMapping("set")
     public void setValue(@ApiParam(value = "键", required = true) @RequestParam String key, @ApiParam(value = "值", required = true) @RequestParam String val) {
-        // -----------------String类型数据操作 start--------------------
+        // -----------------基础数据 类型数据操作 start--------------------
         ValueOperations<String, String> valueOperations = redisTemplate.opsForValue();
         // String类型数据存储，不设置过期时间，永久性保存
         valueOperations.set(key, val);
@@ -39,11 +38,15 @@ public class RedisController {
         valueOperations.setIfAbsent(key + "1", "My_Redis_111");
     }
 
-
     @ApiOperation("Get Value")
     @GetMapping("get/{key}")
-    public String getValue(@ApiParam(value = "键", required = true) @PathVariable String key) {
+    public Object getValue(@ApiParam(value = "键", required = true) @PathVariable String key) {
         return redisTemplate.opsForValue().get(key);
     }
 
+    @ApiOperation("Remove Value")
+    @DeleteMapping("remove/{key}")
+    public Object removeValue(@ApiParam(value = "键", required = true) @PathVariable String key) {
+        return redisTemplate.delete(key);
+    }
 }

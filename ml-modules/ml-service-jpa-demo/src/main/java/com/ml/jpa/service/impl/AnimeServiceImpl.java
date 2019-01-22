@@ -1,6 +1,5 @@
 package com.ml.jpa.service.impl;
 
-import com.ml.base.service.impl.BaseServiceImpl;
 import com.ml.bean.anime.bo.AnimeBo;
 import com.ml.bean.anime.vo.AnimeVo;
 import com.ml.jpa.entity.Anime;

@@ -1,7 +1,5 @@
 package com.ml.jpa.service;
 
-import com.ml.base.service.BaseService;
-
 /**
  * 动漫 - 服务接口
  *

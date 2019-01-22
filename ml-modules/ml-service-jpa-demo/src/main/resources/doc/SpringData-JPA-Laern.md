@@ -57,7 +57,7 @@ public interface AnimeRepository extends JpaRepository<Anime, Long> {
 }
 ```
 
-### 4 add Config
+### 4. add Config
 ```yaml
 spring:
   # 指定数据源
