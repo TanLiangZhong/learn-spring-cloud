@@ -51,5 +51,37 @@ public class Anime extends BaseEntity {
 
 ### 3. add Repostiory
 ```java
+@Repository
+public interface AnimeRepository extends JpaRepository<Anime, Long> {
 
+}
+```
+
+### 4 add Config
+```yaml
+spring:
+  # 指定数据源
+  datasource:
+    url: jdbc:mysql://123.206.125.80:3306/kirito?autoReconnect=true&useUnicode=true&amp&characterEncoding=UTF-8
+    username: root
+    password: MyNewPass4!
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+  #jap 配置
+  jpa:
+    # 数据库
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    # 是否控制台打印 sql
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      use-new-id-generator-mappings: true
+
+  # 当遇到同样名称时, 是否允许覆盖注册
+  main:
+    allow-bean-definition-overriding: true
 ```
