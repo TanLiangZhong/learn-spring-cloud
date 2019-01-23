@@ -21,8 +21,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping
 public class RabbitMqController {
 
+    private final DemoProvider demoProvider;
+
     @Autowired
-    private DemoProvider demoProvider;
+    public RabbitMqController(DemoProvider demoProvider) {
+        this.demoProvider = demoProvider;
+    }
 
     @ApiOperation("send")
     @GetMapping("send")

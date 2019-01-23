@@ -21,35 +21,62 @@ spring:
 ```
 ###4. add Provider
 ```java
+package com.ml.rabbitmq.service;
+
+import com.ml.rabbitmq.constant.RabbitConst;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+/**
+ * Demo - 提供者
+ *
+ * @author liangzhong
+ * @date 2019/1/23 13:58
+ */
 @Service
 public class DemoProvider {
 
+    private final RabbitTemplate rabbitTemplate;
+
     @Autowired
-    private RabbitTemplate rabbitTemplate;
+    public DemoProvider(RabbitTemplate rabbitTemplate) {
+        this.rabbitTemplate = rabbitTemplate;
+    }
 
     public void send(String data) {
         final int length = 100;
         for (int i = 0; i < length; i++) {
             // 发送
-            rabbitTemplate.convertAndSend(DemoConsumer.ML_MQ, data + " --- " + i);
+            rabbitTemplate.convertAndSend(RabbitConst.QueueEnum.ML_MQ.getQueueName(), data + " --- " + i);
         }
-
     }
 }
+
 ```
 ###4. add Consumer
 ```java
+package com.ml.rabbitmq.service;
+
+import com.ml.rabbitmq.constant.RabbitConst;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.stereotype.Component;
+
+/**
+ * Demo - 消费者
+ *
+ * @author liangzhong
+ * @date 2019/1/23 13:58
+ */
 @Component
 public class DemoConsumer {
-
-    final static String ML_MQ = "ML_MQ";
 
     /**
      * 处理 rabbitMQ 测试
      *
      * @param data
      */
-    @RabbitListener(queues = ML_MQ)
+    @RabbitListener(queues = RabbitConst.ML_MQ)
     public void handlerTestMq(String data) {
         try {
             Thread.sleep(10000);
@@ -59,6 +86,66 @@ public class DemoConsumer {
         }
     }
 }
+
 ```
 ###5. add Queues
-欲知后事如何 且听我下回分说
+```java
+package com.ml.rabbitmq.config;
+
+import com.ml.rabbitmq.constant.RabbitConst;
+import org.springframework.amqp.core.Binding;
+import org.springframework.amqp.core.BindingBuilder;
+import org.springframework.amqp.core.DirectExchange;
+import org.springframework.amqp.core.Queue;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+
+/**
+ * RabbitMq - 配置
+ *
+ * @author liangzhong
+ * @date 2019/1/23 14:27
+ */
+@Configuration
+public class RabbitMqConfig {
+
+    /**
+     * 申明交换机
+     *
+     * @return
+     */
+    @Bean
+    public DirectExchange directExchange() {
+        return new DirectExchange(RabbitConst.QueueEnum.ML_MQ.getExchangeName());
+    }
+
+    /**
+     * ml 消息队列
+     *
+     * @return
+     */
+    @Bean
+    public Queue mlQueue() {
+        // 队列名称
+        final String name = RabbitConst.QueueEnum.ML_MQ.getQueueName();
+        // 如果我们声明一个持久队列，则为true（队列将在服务器重启后继续存在）
+        final boolean durable = true;
+        // 如果我们声明一个独占队列，则为true（该队列仅由声明者的连接使用）
+        final boolean exclusive = false;
+        // 如果服务器在不再使用时应删除队列，则为true
+        final boolean autoDelete = true;
+        return new Queue(name, durable, exclusive, autoDelete);
+    }
+
+    /**
+     * 绑定队列和交换机
+     *
+     * @return
+     */
+    @Bean
+    public Binding mlBind() {
+        return BindingBuilder.bind(mlQueue()).to(directExchange()).with(RabbitConst.QueueEnum.ML_MQ.getRoutingKeyName());
+    }
+}
+```

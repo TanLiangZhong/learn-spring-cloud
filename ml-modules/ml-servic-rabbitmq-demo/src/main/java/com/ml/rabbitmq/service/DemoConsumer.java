@@ -1,5 +1,6 @@
 package com.ml.rabbitmq.service;
 
+import com.ml.rabbitmq.constant.RabbitConst;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
@@ -12,14 +13,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class DemoConsumer {
 
-    final static String ML_MQ = "ML_MQ";
-
     /**
      * 处理 rabbitMQ 测试
      *
      * @param data
      */
-    @RabbitListener(queues = ML_MQ)
+    @RabbitListener(queues = RabbitConst.ML_MQ)
     public void handlerTestMq(String data) {
         try {
             Thread.sleep(10000);
