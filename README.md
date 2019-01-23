@@ -8,7 +8,7 @@
 5. Gateway  路由网关
 6. SpringCloudConfig 分布式配置中心
 7. SpringCloudBus   消息总线
-
+8. RabbitMq 消息队列
 
 #### 软件架构
 
@@ -18,3 +18,14 @@
 
 
 #### 目录结构
+```
+|- learn-spring-cloud
+  |-ml-config  -- 配置中心
+  |-ml-eureka  -- 服务注册发现组件
+  |-ml-gateway -- 路由网关
+  |-ml-include -- 行囊
+  |-ml-modules -- 服务模块
+    |-ml-servic-rabbitmq-demo  -- 消息队列Demo
+    |-ml-service-jpa-demo      -- SpringData JPA Demo
+    |-ml-service-redis-demo    -- SpringData Redis Demo
+```
