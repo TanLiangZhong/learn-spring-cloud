@@ -39,10 +39,6 @@ spring:
     # 连接超时时间 (毫秒)
     timeout: 500
 
-  # 当遇到同样名称时, 是否允许覆盖注册
-  main:
-    allow-bean-definition-overriding: true
-
 
 
 
