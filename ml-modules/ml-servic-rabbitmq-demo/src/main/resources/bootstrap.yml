@@ -16,5 +16,9 @@ spring:
       uri: http://${config.host:127.0.0.1}:${config.port:1118}
       enabled: true
 
-
-
+  # rabbitmq 消息队列配置
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: user
+    password: password

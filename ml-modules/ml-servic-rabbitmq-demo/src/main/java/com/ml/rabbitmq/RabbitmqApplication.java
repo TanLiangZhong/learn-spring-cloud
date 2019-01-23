@@ -1,7 +1,9 @@
 package com.ml.rabbitmq;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.SpringCloudApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * Rabbitmq Demo - Main
@@ -10,7 +12,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @version 1.0
  * @date 2018-12-22
  */
-@SpringBootApplication
+@EnableSwagger2
+@EnableFeignClients
+@SpringCloudApplication
 public class RabbitmqApplication {
 
     public static void main(String[] args) {
