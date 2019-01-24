@@ -40,11 +40,19 @@ public class Anime implements Serializable {
 
     public static List<Anime> getParam() {
         List<Anime> list = new ArrayList<>();
-        list.add(new Anime("东方月初", "狐妖小红娘"));
-        list.add(new Anime("涂山红红", "狐妖小红娘"));
-        list.add(new Anime("上条当麻", "科学超电磁炮"));
-        list.add(new Anime("御坂美琴", "科学超电磁炮"));
-        list.add(new Anime("雷姆", "从零开始的异世界生活"));
+        list.add(new Anime("佩恩", "和平"));
+        list.add(new Anime("迪达拉", "艺术"));
+        list.add(new Anime("小南", "友情"));
+        list.add(new Anime("鼬", "亲情"));
+        list.add(new Anime("绝", "统治"));
+        list.add(new Anime("带土", "爱情"));
+        list.add(new Anime("鬼鲛", "力量"));
+        list.add(new Anime("角都", "金钱"));
+        list.add(new Anime("飞段", "宗教"));
+        list.add(new Anime("蝎", "童年"));
+        list.add(new Anime("自来也", "黄"));
+        list.add(new Anime("大蛇丸", "毒"));
+        list.add(new Anime("纲手", "赌"));
         return list;
     }
 }

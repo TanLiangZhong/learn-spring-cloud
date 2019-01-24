@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @Api("Demo")
 @RestController
-@RequestMapping
+@RequestMapping("demo")
 public class RabbitMqController {
 
     private final DemoProvider demoProvider;
@@ -32,6 +32,12 @@ public class RabbitMqController {
     @GetMapping("send")
     public void send(@ApiParam(value = "值", required = true) @RequestParam(defaultValue = "达摩克利斯之剑") String val) {
         demoProvider.send(val);
+    }
+
+    @ApiOperation("sendList")
+    @GetMapping("send/list")
+    public void sendList() {
+        demoProvider.sendList();
     }
 
 }

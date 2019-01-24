@@ -15,10 +15,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 @EnableFeignClients
 @SpringCloudApplication
-public class JpaDemoApplication {
+public class JpaApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(JpaDemoApplication.class, args);
+        SpringApplication.run(JpaApplication.class, args);
     }
 
 }

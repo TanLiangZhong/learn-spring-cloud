@@ -1,5 +1,6 @@
 package com.ml.rabbitmq.service;
 
+import com.ml.bean.anime.entity.Anime;
 import com.ml.rabbitmq.constant.RabbitConst;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,4 +29,9 @@ public class DemoProvider {
             rabbitTemplate.convertAndSend(RabbitConst.QueueEnum.ML_MQ.getQueueName(), data + " --- " + i);
         }
     }
+
+    public void sendList() {
+        rabbitTemplate.convertAndSend(RabbitConst.QueueEnum.ML_MQ.getQueueName(), Anime.getParam());
+    }
+
 }

@@ -1,14 +1,14 @@
 package com.ml.redis.controller;
 
+import com.ml.bean.anime.entity.Anime;
+import com.ml.redis.service.RedisListService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.concurrent.TimeUnit;
+import java.util.List;
 
 /**
  * Redis - Controller
@@ -21,32 +21,41 @@ import java.util.concurrent.TimeUnit;
 @RequestMapping("redis/demo")
 public class RedisController {
 
-    @Autowired(required = false)
-    private RedisTemplate<String, String> redisTemplate;
+    @Autowired
+    private RedisListService redisService;
 
-    @ApiOperation("Set Value")
-    @GetMapping("set")
-    public void setValue(@ApiParam(value = "键", required = true) @RequestParam String key, @ApiParam(value = "值", required = true) @RequestParam String val) {
-        // -----------------基础数据 类型数据操作 start--------------------
-        ValueOperations<String, String> valueOperations = redisTemplate.opsForValue();
-        // String类型数据存储，不设置过期时间，永久性保存
-        valueOperations.set(key, val);
-        // String类型数据存储，设置过期时间为80秒，采用TimeUnit控制时间单位
-        valueOperations.set(key + "_Time", val + "Time", 77, TimeUnit.SECONDS);
-        // 判断key值是否存在，存在则不存储，不存在则存储
-        valueOperations.setIfAbsent(key, val + "My_Redis");
-        valueOperations.setIfAbsent(key + "1", "My_Redis_111");
+    @ApiOperation("Set String")
+    @PutMapping("set/string/{key}")
+    public void setString(@ApiParam(value = "键", required = true) @PathVariable("key") String key,
+                          @ApiParam(value = "值", required = true) @RequestParam(value = "val", defaultValue = "达摩克利斯之剑") String val) {
+        redisService.setString(key, val);
     }
 
-    @ApiOperation("Get Value")
+    @ApiOperation("Get String")
     @GetMapping("get/{key}")
-    public Object getValue(@ApiParam(value = "键", required = true) @PathVariable String key) {
-        return redisTemplate.opsForValue().get(key);
+    public Object getString(@ApiParam(value = "键", required = true) @PathVariable("key") String key) {
+        return redisService.getString(key);
     }
 
-    @ApiOperation("Remove Value")
-    @DeleteMapping("remove/{key}")
-    public Object removeValue(@ApiParam(value = "键", required = true) @PathVariable String key) {
-        return redisTemplate.delete(key);
+    @ApiOperation("Set List")
+    @PutMapping("set/list/{key}")
+    public Long setList(@ApiParam(value = "键", required = true) @PathVariable String key, @ApiParam(value = "值", required = true) @RequestBody List<String> list) {
+        if (list.isEmpty()) {
+            List<Anime> animeList = Anime.getParam();
+            animeList.forEach(a -> list.add(a.getName()));
+        }
+        return redisService.setList(key, list);
+    }
+
+    @ApiOperation("Get List")
+    @GetMapping("get/list/{key}")
+    public Object getList(@ApiParam(value = "键", required = true) @PathVariable("key") String key) {
+        return redisService.getList(key);
+    }
+
+    @ApiOperation("Delete Value")
+    @DeleteMapping("delete/{key}")
+    public Boolean delete(@ApiParam(value = "键", required = true) @PathVariable("key") String key) {
+        return redisService.delete(key);
     }
 }

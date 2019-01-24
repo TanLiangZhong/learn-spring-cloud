@@ -13,7 +13,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @date 2018-12-22
  */
 @EnableSwagger2
-@EnableFeignClients
+@EnableFeignClients(basePackages = "com.ml.common.feign")
 @SpringCloudApplication
 public class RabbitmqApplication {
 
