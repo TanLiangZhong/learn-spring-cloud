@@ -21,7 +21,7 @@ spring:
     # 数据库索引 (default:0)
     database: 0
     # 服务器地址 (default:localhost)
-    host: 192.168.131.164
+    host: 127.0.0.1
     # 服务器连接端口 (default:6379)
     port: 6379
     # 服务器连接密码 (default:空)
