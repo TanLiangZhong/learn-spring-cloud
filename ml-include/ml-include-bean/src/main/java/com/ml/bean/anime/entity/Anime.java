@@ -53,6 +53,13 @@ public class Anime implements Serializable {
         list.add(new Anime("自来也", "黄"));
         list.add(new Anime("大蛇丸", "毒"));
         list.add(new Anime("纲手", "赌"));
+
+        list.add(new Anime("自来也", "1"));
+        list.add(new Anime("大蛇丸", "1"));
+        list.add(new Anime("纲手", "1"));
+        list.add(new Anime("自来也", "2"));
+        list.add(new Anime("大蛇丸", "2"));
+        list.add(new Anime("纲手", "2"));
         return list;
     }
 }
