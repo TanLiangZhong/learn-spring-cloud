@@ -37,12 +37,12 @@ public class RedisListService {
     public void setString(String key, String val) {
         ValueOperations<String, Object> valueOperations = redisTemplate.opsForValue();
         // String类型数据存储，不设置过期时间，永久性保存
-        valueOperations.set(key, val);
+//        valueOperations.set(key, val);
         // String类型数据存储，设置过期时间为80秒，采用TimeUnit控制时间单位
-        valueOperations.set(key + "_Time", val + "Time", 77, TimeUnit.SECONDS);
-        // 判断key值是否存在，存在则不存储，不存在则存储
-        valueOperations.setIfAbsent(key, val + "My_Redis");
-        valueOperations.setIfAbsent(key + "1", "My_Redis_111");
+        valueOperations.set(key, val , 77, TimeUnit.SECONDS);
+//        // 判断key值是否存在，存在则不存储，不存在则存储
+//        valueOperations.setIfAbsent(key, val + "My_Redis");
+//        valueOperations.setIfAbsent(key + "1", "My_Redis_111");
     }
 
     /**

@@ -18,9 +18,9 @@ spring:
 
   # 指定数据源
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/kirito?autoReconnect=true&useUnicode=true&amp&characterEncoding=UTF-8
+    url: jdbc:mysql://127.0.0.1:3306/we_newrs_test?autoReconnect=true&useUnicode=true&amp&characterEncoding=UTF-8
     username: root
-    password: MyNewPass4!
+    password: my-secret-pw
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Demo - 消费者
@@ -43,12 +44,12 @@ public class DemoConsumer {
      * @param data
      */
     @RabbitListener(queues = RabbitConst.ML_MQ)
-    public void handlerTestMq(List<Anime> data) {
+    public void handlerTestMq(Map<String, String> data) {
         try {
-            Thread.sleep(2000);
-            redisApi.setList(RabbitConst.ML_MQ, data);
+            //Thread.sleep(1000);
+            redisApi.setString(data.get("key"), data.get("val"));
             System.out.println("JSON.toJSONString(data) = " + JSON.toJSONString(data));
-        } catch (InterruptedException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

@@ -6,6 +6,9 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Demo - 提供者
  *
@@ -26,7 +29,10 @@ public class DemoProvider {
         final int length = 100;
         for (int i = 0; i < length; i++) {
             // 发送
-            rabbitTemplate.convertAndSend(RabbitConst.QueueEnum.ML_MQ.getQueueName(), data + " --- " + i);
+            Map<String, String> map = new HashMap<>();
+            map.put("key", "ml" + i);
+            map.put("val", data + i);
+            rabbitTemplate.convertAndSend(RabbitConst.QueueEnum.ML_MQ.getQueueName(), map);
         }
     }
 
