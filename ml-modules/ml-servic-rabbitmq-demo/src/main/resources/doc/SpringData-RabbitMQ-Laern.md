@@ -1,7 +1,11 @@
 ### [RabbitMQ Document](http://www.rabbitmq.com/)
 
-###1. [docker-install-RabbitMQ](https://www.jianshu.com/p/14ffe0f3db94)
-
+###1. [docker-install-RabbitMQ](https://hub.docker.com/_/rabbitmq)
+```
+1. docker pull rabbitmq:3.7.8-management
+2. docker run -d --name some-rabbit -e RABBITMQ_DEFAULT_USER=user -e RABBITMQ_DEFAULT_PASS=password -p 5672:5672 -p 15672:15672 rabbitmq:3.7.8-management
+3. 访问管理界面 `http://127.0.0.1:15672` (注:只有`management`版才有管理界面)
+```
 ###2. add Depending
 ```xml
 <dependency>
