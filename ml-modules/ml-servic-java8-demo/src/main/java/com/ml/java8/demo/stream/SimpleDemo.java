@@ -1,4 +1,4 @@
-package com.ml.java8;
+package com.ml.java8.demo.stream;
 
 import com.ml.bean.anime.entity.Anime;
 
