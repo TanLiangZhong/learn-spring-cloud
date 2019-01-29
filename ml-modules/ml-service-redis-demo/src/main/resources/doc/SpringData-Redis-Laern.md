@@ -1,7 +1,10 @@
 ### [Spring Data Redis Document](https://spring.io/projects/spring-data-redis)
 
 ###1. [docker-install-redis](http://www.runoob.com/docker/docker-install-redis.html)
-
+```
+1. docker pull redis:5.0.3
+2. docker run  -p 6379:6379 -d redis:latest redis-server --appendonly yes --requirepass password
+```
 ###2. add Depending
 ```xml
 <dependency>
