@@ -3,9 +3,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>ml-servic-java8-demo</artifactId>
+    <artifactId>ml-service-java8-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>ml-servic-com.ml.java8-demo</name>
+    <name>ml-service-java8-demo</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>

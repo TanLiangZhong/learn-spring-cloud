@@ -13,10 +13,11 @@
     <modules>
         <module>ml-service-anime</module>
         <module>ml-service-system</module>
-        <module>ml-servic-rabbitmq-demo</module>
+        <module>ml-service-rabbitmq-demo</module>
         <module>ml-service-jpa-demo</module>
         <module>ml-service-redis-demo</module>
-        <module>ml-servic-java8-demo</module>
+        <module>ml-service-java8-demo</module>
+        <module>ml-service-protos-demo</module>
     </modules>
 
     <parent>
