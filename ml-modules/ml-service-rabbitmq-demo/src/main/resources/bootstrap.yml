@@ -22,3 +22,11 @@ spring:
     port: 5672
     username: user
     password: password
+    # 消息发布者确认 (默认:false)
+    publisher-confirms: true
+    # 消息发布者返回 (默认:false)
+    publisher-returns: true
+    listener:
+      simple:
+        # 消费者消息确认
+        acknowledge-mode: manual

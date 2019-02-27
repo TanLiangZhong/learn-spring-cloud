@@ -2,6 +2,12 @@
 ml:
   name: 情不敢至深 恐大梦一场 卦不敢算尽 畏天道无常
 
+oss:
+  endpoint: http://oss-cn-shanghai.aliyuncs.com
+  accessKeyId: LTAIQdxIsWg3KdVx
+  accessKeySecret: U65yd7ttUraV07dofiBkY3aKKHB8Ko
+  bucketName: ml-20190223
+
 eureka:
   instance:
     # 设置微服务调用地址为IP优先

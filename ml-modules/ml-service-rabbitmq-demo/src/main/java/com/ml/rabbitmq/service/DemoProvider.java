@@ -2,12 +2,12 @@ package com.ml.rabbitmq.service;
 
 import com.ml.bean.anime.entity.Anime;
 import com.ml.rabbitmq.constant.RabbitConst;
+import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.UUID;
 
 /**
  * Demo - 提供者
@@ -26,13 +26,10 @@ public class DemoProvider {
     }
 
     public void send(String data) {
-        final int length = 100;
+        final int length = 2;
         for (int i = 0; i < length; i++) {
-            // 发送
-            Map<String, String> map = new HashMap<>();
-            map.put("key", "ml" + i);
-            map.put("val", data + i);
-            rabbitTemplate.convertAndSend(RabbitConst.QueueEnum.ML_MQ.getQueueName(), map);
+            CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
+            rabbitTemplate.convertAndSend(RabbitConst.QueueEnum.ML_MQ.getQueueName(), data);
         }
     }
 
