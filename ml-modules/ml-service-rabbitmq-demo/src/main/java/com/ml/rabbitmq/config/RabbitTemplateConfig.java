@@ -14,7 +14,7 @@ import javax.annotation.PostConstruct;
  * @author liangzhong
  * @date 2019/2/22 11:36
  */
-@Component
+//@Component
 public class RabbitTemplateConfig implements RabbitTemplate.ReturnCallback, RabbitTemplate.ConfirmCallback {
 
     @Autowired

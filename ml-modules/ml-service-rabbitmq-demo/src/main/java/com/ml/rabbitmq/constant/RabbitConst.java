@@ -8,6 +8,9 @@ public interface RabbitConst {
 
     public final static String ML_MQ = "ML_MQ";
 
+    public final static String DELAY_QUEUE = "DELAY_QUEUE";
+
+
     enum Exchange implements RabbitConst {
         /**
          * 不转发路由(速度最快)
@@ -31,7 +34,11 @@ public interface RabbitConst {
         /**
          * 用于测试MQ
          */
-        ML_MQ(RabbitConst.ML_MQ, Exchange.DIRECT.name(), RabbitConst.ML_MQ + "_KEY");
+        ML_MQ(RabbitConst.ML_MQ, Exchange.DIRECT.name(), RabbitConst.ML_MQ + "_KEY"),
+        /**
+         * 延时消费队列
+         */
+        DELAY_QUEUE(RabbitConst.DELAY_QUEUE, Exchange.DIRECT.name(), RabbitConst.DELAY_QUEUE + "_KEY");
 
         /**
          * 队列

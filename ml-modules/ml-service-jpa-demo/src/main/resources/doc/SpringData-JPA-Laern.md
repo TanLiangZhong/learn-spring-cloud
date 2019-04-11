@@ -76,6 +76,7 @@ spring:
     # 是否控制台打印 sql
     show-sql: true
     hibernate:
+      
       ddl-auto: validate
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
