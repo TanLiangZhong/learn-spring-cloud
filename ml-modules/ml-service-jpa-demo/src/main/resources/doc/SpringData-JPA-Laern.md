@@ -76,7 +76,10 @@ spring:
     # 是否控制台打印 sql
     show-sql: true
     hibernate:
-      
+      #      validate              加载hibernate时，验证创建数据库表结构
+      #      create                每次加载hibernate，重新创建数据库表结构，这就是导致数据库表数据丢失的原因。
+      #      create-drop        加载hibernate时创建，退出是删除表结构
+      #      update               加载hibernate自动更新数据库结构
       ddl-auto: validate
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
@@ -85,4 +88,8 @@ spring:
   # 当遇到同样名称时, 是否允许覆盖注册
   main:
     allow-bean-definition-overriding: true
+```
+### 4. docker-install-Mysql
+```
+1. docker run -p 3306:3306 --name ml-mysql -v $PWD/conf:/etc/mysql/conf.d -v $PWD/logs:/logs -v $PWD/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.7
 ```
